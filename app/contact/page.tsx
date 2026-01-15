@@ -20,13 +20,29 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('idle')
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
       setSubmitStatus('success')
-      setIsSubmitting(false)
       setFormData({ name: '', email: '', company: '', service: '', message: '' })
-    }, 1000)
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -251,6 +267,47 @@ export default function ContactPage() {
                         }}
                       >
                         {t.contactPage.success.sendAnother}
+                      </button>
+                    </div>
+                  ) : submitStatus === 'error' ? (
+                    <div style={{ textAlign: 'center', padding: 'var(--space-12) 0' }}>
+                      <div style={{
+                        width: '80px',
+                        height: '80px',
+                        margin: '0 auto var(--space-6)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        background: 'rgba(239, 68, 68, 0.1)',
+                        borderRadius: 'var(--radius-full)',
+                      }}>
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2">
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="15" y1="9" x2="9" y2="15" />
+                          <line x1="9" y1="9" x2="15" y2="15" />
+                        </svg>
+                      </div>
+                      <h3 className="section-title" style={{ fontSize: 'var(--text-2xl)', marginBottom: 'var(--space-4)' }}>
+                        Something went wrong
+                      </h3>
+                      <p style={{ color: 'var(--fg-muted)', marginBottom: 'var(--space-8)' }}>
+                        Failed to send your message. Please try again or email us directly at{' '}
+                        <a href="mailto:contact@mantaray.digital" style={{ color: 'var(--primary)' }}>
+                          contact@mantaray.digital
+                        </a>
+                      </p>
+                      <button
+                        onClick={() => setSubmitStatus('idle')}
+                        style={{
+                          color: 'var(--primary)',
+                          fontWeight: 600,
+                          background: 'none',
+                          border: 'none',
+                          cursor: 'pointer',
+                          textDecoration: 'underline',
+                        }}
+                      >
+                        Try Again
                       </button>
                     </div>
                   ) : (
