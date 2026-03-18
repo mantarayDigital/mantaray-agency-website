@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = () => new Resend(process.env.RESEND_API_KEY)
 const FROM_EMAIL = 'contact@email.mantaray.digital'
 const TO_EMAIL = 'contact@mantaray.digital'
 
@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     }
 
     // Send notification to you
-    await resend.emails.send({
+    await resend().emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
       subject: `[Mantaray] New inquiry from ${name}`,
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
     })
 
     // Send confirmation to the submitter
-    await resend.emails.send({
+    await resend().emails.send({
       from: FROM_EMAIL,
       to: email,
       subject: 'Thank you for reaching out | Mantaray',
