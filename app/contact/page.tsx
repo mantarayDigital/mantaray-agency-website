@@ -81,6 +81,11 @@ export default function ContactPage() {
                   grid-template-columns: 1fr 1fr !important;
                 }
               }
+              @media (min-width: 768px) {
+                .contact-info-row {
+                  grid-template-columns: repeat(3, 1fr) !important;
+                }
+              }
             `}</style>
             <div className="contact-grid" style={{
               display: 'grid',
@@ -144,90 +149,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Contact Info */}
-                <div style={{ marginTop: 'var(--space-8)', display: 'flex', flexDirection: 'column', gap: 'var(--space-4)' }}>
-                  {[
-                    {
-                      icon: (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                          <path d="M22 6l-10 7L2 6" />
-                        </svg>
-                      ),
-                      label: t.contactPage.contactInfo.email.label,
-                      value: t.contactPage.contactInfo.email.value,
-                      href: 'mailto:letstalk@mantaray.digital',
-                    },
-                    {
-                      icon: (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                          <circle cx="12" cy="10" r="3" />
-                        </svg>
-                      ),
-                      label: t.contactPage.contactInfo.location.label,
-                      value: t.contactPage.contactInfo.location.value,
-                      href: '#',
-                    },
-                    {
-                      icon: (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12,6 12,12 16,14" />
-                        </svg>
-                      ),
-                      label: t.contactPage.contactInfo.response.label,
-                      value: t.contactPage.contactInfo.response.value,
-                      href: '#',
-                    },
-                  ].map((info, i) => (
-                    <a
-                      key={i}
-                      href={info.href}
-                      className="card"
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: 'var(--space-4)',
-                        padding: 'var(--space-4)',
-                        textDecoration: 'none',
-                        transition: 'all var(--transition-fast)',
-                      }}
-                    >
-                      <div style={{
-                        flexShrink: 0,
-                        width: '48px',
-                        height: '48px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        background: 'var(--primary)',
-                        borderRadius: 'var(--radius-lg)',
-                        color: 'var(--bg-base)',
-                      }}>
-                        {info.icon}
-                      </div>
-                      <div>
-                        <div style={{
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: 'var(--text-xs)',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.1em',
-                          color: 'var(--fg-subtle)',
-                          marginBottom: 'var(--space-1)',
-                        }}>
-                          {info.label}
-                        </div>
-                        <div style={{
-                          fontWeight: 600,
-                          color: 'var(--fg-default)',
-                        }}>
-                          {info.value}
-                        </div>
-                      </div>
-                    </a>
-                  ))}
-                </div>
               </div>
 
               {/* Form */}
@@ -447,6 +368,96 @@ export default function ContactPage() {
                   )}
                 </div>
               </div>
+            </div>
+
+            {/* Contact Info Row */}
+            <div className="contact-info-row" style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr',
+              gap: 'var(--space-4)',
+              marginTop: 'var(--space-12)',
+            }}>
+              {[
+                {
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                      <path d="M22 6l-10 7L2 6" />
+                    </svg>
+                  ),
+                  label: t.contactPage.contactInfo.email.label,
+                  value: t.contactPage.contactInfo.email.value,
+                  href: 'mailto:letstalk@mantaray.digital',
+                },
+                {
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  ),
+                  label: t.contactPage.contactInfo.location.label,
+                  value: t.contactPage.contactInfo.location.value,
+                  href: '#',
+                },
+                {
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12,6 12,12 16,14" />
+                    </svg>
+                  ),
+                  label: t.contactPage.contactInfo.response.label,
+                  value: t.contactPage.contactInfo.response.value,
+                  href: '#',
+                },
+              ].map((info, i) => (
+                <a
+                  key={i}
+                  href={info.href}
+                  className="card"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 'var(--space-4)',
+                    padding: 'var(--space-4) var(--space-6)',
+                    textDecoration: 'none',
+                    transition: 'all var(--transition-fast)',
+                  }}
+                >
+                  <div style={{
+                    flexShrink: 0,
+                    width: '48px',
+                    height: '48px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    background: 'var(--primary)',
+                    borderRadius: 'var(--radius-lg)',
+                    color: 'var(--bg-base)',
+                  }}>
+                    {info.icon}
+                  </div>
+                  <div>
+                    <div style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 'var(--text-xs)',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      color: 'var(--fg-subtle)',
+                      marginBottom: 'var(--space-1)',
+                    }}>
+                      {info.label}
+                    </div>
+                    <div style={{
+                      fontWeight: 600,
+                      color: 'var(--fg-default)',
+                    }}>
+                      {info.value}
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </div>
