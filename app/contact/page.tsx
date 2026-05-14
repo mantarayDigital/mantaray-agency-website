@@ -213,8 +213,8 @@ export default function ContactPage() {
                       </h3>
                       <p style={{ color: 'var(--fg-muted)', marginBottom: 'var(--space-8)' }}>
                         Failed to send your message. Please try again or email us directly at{' '}
-                        <a href="mailto:contact@mantaray.digital" style={{ color: 'var(--primary)' }}>
-                          contact@mantaray.digital
+                        <a href="mailto:admin@mantaray.digital" style={{ color: 'var(--primary)' }}>
+                          admin@mantaray.digital
                         </a>
                       </p>
                       <button
@@ -387,7 +387,7 @@ export default function ContactPage() {
                   ),
                   label: t.contactPage.contactInfo.email.label,
                   value: t.contactPage.contactInfo.email.value,
-                  href: 'mailto:letstalk@mantaray.digital',
+                  href: 'mailto:admin@mantaray.digital',
                 },
                 {
                   icon: (
@@ -398,18 +398,18 @@ export default function ContactPage() {
                   ),
                   label: t.contactPage.contactInfo.location.label,
                   value: t.contactPage.contactInfo.location.value,
-                  href: '#',
+                  href: 'https://www.google.com/maps/search/?api=1&query=5+Eid+Mostafa+St+Al+Omraneya+Giza',
                 },
                 {
                   icon: (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12,6 12,12 16,14" />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z" />
                     </svg>
                   ),
-                  label: t.contactPage.contactInfo.response.label,
-                  value: t.contactPage.contactInfo.response.value,
-                  href: '#',
+                  label: t.contactPage.contactInfo.phone.label,
+                  value: t.contactPage.contactInfo.phone.value,
+                  href: 'tel:+201515193039',
+                  valueDir: 'ltr' as const,
                 },
               ].map((info, i) => (
                 <a
@@ -449,10 +449,14 @@ export default function ContactPage() {
                     }}>
                       {info.label}
                     </div>
-                    <div style={{
-                      fontWeight: 600,
-                      color: 'var(--fg-default)',
-                    }}>
+                    <div
+                      dir={'valueDir' in info ? info.valueDir : undefined}
+                      style={{
+                        fontWeight: 600,
+                        color: 'var(--fg-default)',
+                        unicodeBidi: 'valueDir' in info ? 'isolate' : undefined,
+                      }}
+                    >
                       {info.value}
                     </div>
                   </div>

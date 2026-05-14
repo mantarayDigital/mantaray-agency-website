@@ -667,9 +667,9 @@ export const translations = {
         sendAnother: "Send another message",
       },
       contactInfo: {
-        email: { label: "Email", value: "letstalk@mantaray.digital" },
-        location: { label: "Location", value: "Dubai, UAE" },
-        response: { label: "Response Time", value: "Within 24 hours" },
+        email: { label: "Email", value: "admin@mantaray.digital" },
+        location: { label: "Location", value: "5 Eid Mostafa St, Al Omraneya, Giza" },
+        phone: { label: "Phone", value: "+20 151 519 3039" },
       },
     },
 
@@ -1400,10 +1400,10 @@ export const translations = {
       contactInfo: {
         email: {
           label: "البريد الإلكتروني",
-          value: "letstalk@mantaray.digital",
+          value: "admin@mantaray.digital",
         },
-        location: { label: "الموقع", value: "دبي، الإمارات العربية المتحدة" },
-        response: { label: "وقت الاستجابة", value: "خلال 24 ساعة" },
+        location: { label: "الموقع", value: "5 شارع عيد مصطفى، العمرانية، الجيزة" },
+        phone: { label: "الهاتف", value: "+20 151 519 3039" },
       },
     },
 
