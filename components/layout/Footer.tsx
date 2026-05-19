@@ -42,8 +42,9 @@ export default function Footer() {
             </div>
           </div> */}
         </div>
-        <div className="footer-bottom">
+        <div className="footer-bottom" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
           <p className="footer-copyright">{t.footer.copyright}</p>
+          <p className="footer-copyright" style={{ fontSize: '0.875rem', opacity: 0.7 }}>{t.footer.registration}</p>
         </div>
       </div>
     </footer>
