@@ -133,7 +133,7 @@ export const translations = {
         linkedin: "LinkedIn",
       },
       copyright: "© 2026 Mantaray. All rights reserved.",
-      registration: "Commercial Registration: 110700300055442 | Tax Registration: 779-409-027",
+      registration: "Commercial Name: ASQUARED | Commercial Registration: 110700300055442 | Tax Registration: 779-409-027",
     },
 
     // Projects Page
@@ -870,7 +870,7 @@ export const translations = {
         linkedin: "لينكد إن",
       },
       copyright: "© 2026 مانتاراي. جميع الحقوق محفوظة.",
-      registration: "سجل تجاري: 110700300055442 | بطاقة ضريبية: 779-409-027",
+      registration: "الاسم التجاري: ASQUARED | سجل تجاري: 110700300055442 | بطاقة ضريبية: 779-409-027",
     },
 
     // Projects Page
