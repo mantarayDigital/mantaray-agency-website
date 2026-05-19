@@ -133,6 +133,8 @@ export const translations = {
         linkedin: "LinkedIn",
       },
       copyright: "© 2026 Mantaray. All rights reserved.",
+      registrationNotice:
+        "Business registered under Commercial Registration No. 110700300055442 and Tax Registration No. 779-409-027.",
     },
 
     // Projects Page
@@ -869,6 +871,8 @@ export const translations = {
         linkedin: "لينكد إن",
       },
       copyright: "© 2026 مانتاراي. جميع الحقوق محفوظة.",
+      registrationNotice:
+        "المنشأة مسجلة تحت رقم السجل التجاري 110700300055442 والرقم الضريبي 779-409-027.",
     },
 
     // Projects Page

@@ -44,6 +44,7 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <p className="footer-copyright">{t.footer.copyright}</p>
+          <p className="footer-registration">{t.footer.registrationNotice}</p>
         </div>
       </div>
     </footer>

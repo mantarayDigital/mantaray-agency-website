@@ -1103,6 +1103,11 @@ body::before {
   font-size: var(--text-sm);
 }
 
+.footer-registration {
+  color: var(--fg-subtle);
+  font-size: var(--text-xs);
+}
+
 /* ============================================
    UTILITY CLASSES
    ============================================ */
